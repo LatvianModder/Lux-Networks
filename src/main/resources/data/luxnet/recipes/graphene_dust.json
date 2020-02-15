@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GCG",
+		"CBC",
+		"GCG"
+	],
+	"key": {
+		"G": {
+			"tag": "forge:gunpowder"
+		},
+		"C": {
+			"item": "luxnet:conductive_powder"
+		},
+		"B": {
+			"tag": "forge:storage_blocks/coal"
+		}
+	},
+	"result": {
+		"item": "luxnet:graphene_dust"
+	}
+}

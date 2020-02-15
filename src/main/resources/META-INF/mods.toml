@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[30,)"
+issueTrackerURL="https://github.com/LatvianModder/Lux-Networks/issues"
+
+[[mods]]
+modId="luxnet"
+version="${file.jarVersion}"
+displayName="Lux Networks"
+authors="LatvianModder"
+description='''
+Adds light-based devices and resource transportation methods
+'''
+logoFile="luxnet_logo.png"
+
+[[dependencies.luxnet]]
+    modId="forge"
+    mandatory=true
+    versionRange="[30,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.luxnet]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15,)"
+    ordering="NONE"
+    side="BOTH"

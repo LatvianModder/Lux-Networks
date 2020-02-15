@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"MCM",
+		"C C",
+		"MCM"
+	],
+	"key": {
+		"M": {
+			"item": "minecraft:magma_block"
+		},
+		"C": {
+			"tag": "minecraft:coals"
+		}
+	},
+	"result": {
+		"item": "luxnet:hot_coal",
+		"count": 4
+	}
+}
