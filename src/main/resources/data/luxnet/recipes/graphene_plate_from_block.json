@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "luxnet:graphene_plate_block"
+		}
+	],
+	"result": {
+		"item": "luxnet:graphene_plate",
+		"count": 9
+	}
+}

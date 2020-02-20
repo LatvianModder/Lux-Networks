@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"direction=down_east_up_west": {"model": "luxnet:block/mirror_h", "y": 270},
+		"direction=down_west_up_east": {"model": "luxnet:block/mirror_h", "y": 90},
+		"direction=down_south_up_north": {"model": "luxnet:block/mirror_h", "y": 0},
+		"direction=down_north_up_south": {"model": "luxnet:block/mirror_h", "y": 180},
+		"direction=north_east_south_west": {"model": "luxnet:block/mirror_v", "y": 0},
+		"direction=north_west_south_east": {"model": "luxnet:block/mirror_v", "y": 90}
+	}
+}

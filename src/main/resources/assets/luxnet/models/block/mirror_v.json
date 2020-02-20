@@ -1,0 +1,23 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"particle": "luxnet:block/mirror",
+		"mirror": "luxnet:block/mirror"
+	},
+	"elements": [
+		{
+			"from": [0.5, 0, 7.5],
+			"to": [15.5, 16, 8.5],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"color": 2,
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#mirror"},
+				"east": {"uv": [0, 0, 1, 16], "rotation": 180, "texture": "#mirror"},
+				"south": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#mirror"},
+				"west": {"uv": [0, 0, 1, 16], "rotation": 180, "texture": "#mirror"},
+				"up": {"uv": [0, 0, 16, 1], "rotation": 180, "texture": "#mirror", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 1], "rotation": 180, "texture": "#mirror", "cullface": "down"}
+			}
+		}
+	]
+}

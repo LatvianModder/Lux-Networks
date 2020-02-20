@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GGG",
+		"GPL",
+		"GGG"
+	],
+	"key": {
+		"G": {
+			"item": "luxnet:graphene_plate"
+		},
+		"P": {
+			"item": "luxnet:luminous_crystal"
+		},
+		"L": {
+			"item": "luxnet:lens"
+		}
+	},
+	"result": {
+		"item": "luxnet:laser_emitter"
+	}
+}

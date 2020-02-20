@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"RRR",
+		"CCC",
+		"RRR"
+	],
+	"key": {
+		"R": {
+			"item": "luxnet:rubber"
+		},
+		"C": {
+			"item": "luxnet:conductive_powder"
+		}
+	},
+	"result": {
+		"item": "luxnet:cable",
+		"count": 12
+	}
+}

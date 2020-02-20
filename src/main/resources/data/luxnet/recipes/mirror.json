@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"SIS",
+		"SGS",
+		"SIS"
+	],
+	"key": {
+		"G": {
+			"tag": "forge:glass_panes"
+		},
+		"I": {
+			"tag": "forge:nuggets/iron"
+		},
+		"S": {
+			"tag": "forge:rods/wooden"
+		}
+	},
+	"result": {
+		"item": "luxnet:mirror"
+	}
+}

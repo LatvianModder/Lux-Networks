@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"QGQ",
+		"GMG",
+		"QGQ"
+	],
+	"key": {
+		"G": {
+			"tag": "forge:dusts/glowstone"
+		},
+		"Q": {
+			"tag": "forge:gems/quartz"
+		},
+		"M": {
+			"item": "minecraft:phantom_membrane"
+		}
+	},
+	"result": {
+		"item": "luxnet:luminous_crystal"
+	}
+}

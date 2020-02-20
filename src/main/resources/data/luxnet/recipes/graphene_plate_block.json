@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GGG",
+		"GGG",
+		"GGG"
+	],
+	"key": {
+		"G": {
+			"item": "luxnet:graphene_plate"
+		}
+	},
+	"result": {
+		"item": "luxnet:graphene_plate_block"
+	}
+}

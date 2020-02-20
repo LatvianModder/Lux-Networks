@@ -1,16 +1,22 @@
 package dev.latvian.mods.luxnet;
 
+import dev.latvian.mods.luxnet.block.CompressorBlock;
+import dev.latvian.mods.luxnet.block.LaserEmitterBlock;
 import dev.latvian.mods.luxnet.block.LuxNetBlocks;
+import dev.latvian.mods.luxnet.block.MirrorBlock;
+import dev.latvian.mods.luxnet.block.entity.LaserEmitterEntity;
+import dev.latvian.mods.luxnet.client.LuxNetClient;
+import dev.latvian.mods.luxnet.item.GrapheneArmorItem;
 import dev.latvian.mods.luxnet.item.HotCoalItem;
 import dev.latvian.mods.luxnet.item.LuxNetItems;
 import dev.latvian.mods.luxnet.item.RemoteItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
@@ -30,6 +36,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.PistonEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -106,9 +113,10 @@ public class LuxNet
 			}
 
 			@Override
+			@OnlyIn(Dist.CLIENT)
 			public String getName()
 			{
-				return "graphene";
+				return "luxnet:graphene";
 			}
 
 			@Override
@@ -117,6 +125,9 @@ public class LuxNet
 				return 4F;
 			}
 		};
+
+		//noinspection Convert2MethodRef
+		DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> new LuxNetClient());
 	}
 
 	private void registerItems(RegistryEvent.Register<Item> event)
@@ -131,31 +142,41 @@ public class LuxNet
 				new Item(new Item.Properties().group(itemGroup)).setRegistryName("simple_circuit_board"),
 				new Item(new Item.Properties().group(itemGroup)).setRegistryName("advanced_circuit_board"),
 				new Item(new Item.Properties().group(itemGroup)).setRegistryName("conductive_powder"),
-				new Item(new Item.Properties().group(itemGroup)).setRegistryName("luminous_powder"),
+				new Item(new Item.Properties().group(itemGroup)).setRegistryName("luminous_crystal"),
+				new Item(new Item.Properties().group(itemGroup)).setRegistryName("cable"),
 				new Item(new Item.Properties().group(itemGroup)).setRegistryName("lens"),
-				new ArmorItem(grapheneArmorMaterial, EquipmentSlotType.HEAD, new Item.Properties().group(itemGroup).maxStackSize(1)).setRegistryName("graphene_helmet"),
-				new ArmorItem(grapheneArmorMaterial, EquipmentSlotType.CHEST, new Item.Properties().group(itemGroup).maxStackSize(1)).setRegistryName("graphene_chestplate"),
-				new ArmorItem(grapheneArmorMaterial, EquipmentSlotType.LEGS, new Item.Properties().group(itemGroup).maxStackSize(1)).setRegistryName("graphene_leggings"),
-				new ArmorItem(grapheneArmorMaterial, EquipmentSlotType.FEET, new Item.Properties().group(itemGroup).maxStackSize(1)).setRegistryName("graphene_boots"),
+				new GrapheneArmorItem(grapheneArmorMaterial, EquipmentSlotType.HEAD, new Item.Properties().group(itemGroup).maxStackSize(1)).setRegistryName("graphene_helmet"),
+				new GrapheneArmorItem(grapheneArmorMaterial, EquipmentSlotType.CHEST, new Item.Properties().group(itemGroup).maxStackSize(1)).setRegistryName("graphene_chestplate"),
+				new GrapheneArmorItem(grapheneArmorMaterial, EquipmentSlotType.LEGS, new Item.Properties().group(itemGroup).maxStackSize(1)).setRegistryName("graphene_leggings"),
+				new GrapheneArmorItem(grapheneArmorMaterial, EquipmentSlotType.FEET, new Item.Properties().group(itemGroup).maxStackSize(1)).setRegistryName("graphene_boots"),
 				new RemoteItem(new Item.Properties().group(itemGroup).maxStackSize(1)).setRegistryName("remote")
 		);
 
 		event.getRegistry().registerAll(
 				new BlockItem(LuxNetBlocks.GRAPHITE_DUST_BLOCK, new Item.Properties().group(itemGroup)).setRegistryName("graphite_dust_block"),
-				new BlockItem(LuxNetBlocks.GRAPHENE_PLATE_BLOCK, new Item.Properties().group(itemGroup)).setRegistryName("graphene_plate_block")
+				new BlockItem(LuxNetBlocks.GRAPHENE_PLATE_BLOCK, new Item.Properties().group(itemGroup)).setRegistryName("graphene_plate_block"),
+				new BlockItem(LuxNetBlocks.COMPRESSOR, new Item.Properties().group(itemGroup)).setRegistryName("compressor"),
+				new BlockItem(LuxNetBlocks.MIRROR, new Item.Properties().group(itemGroup)).setRegistryName("mirror"),
+				new BlockItem(LuxNetBlocks.LASER_EMITTER, new Item.Properties().group(itemGroup)).setRegistryName("laser_emitter")
 		);
 	}
 
 	private void registerBlocks(RegistryEvent.Register<Block> event)
 	{
 		event.getRegistry().registerAll(
-				new Block(Block.Properties.create(Material.IRON, MaterialColor.GRAY).hardnessAndResistance(1F)).setRegistryName("graphite_dust_block"),
-				new Block(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(1.5F)).setRegistryName("graphene_plate_block")
+				new Block(Block.Properties.create(Material.IRON, MaterialColor.GRAY).hardnessAndResistance(1F).sound(SoundType.METAL)).setRegistryName("graphite_dust_block"),
+				new Block(Block.Properties.create(Material.IRON, MaterialColor.BLACK).hardnessAndResistance(1.5F).sound(SoundType.METAL)).setRegistryName("graphene_plate_block"),
+				new CompressorBlock(Block.Properties.create(Material.IRON, MaterialColor.OBSIDIAN).hardnessAndResistance(1F).sound(SoundType.METAL)).setRegistryName("compressor"),
+				new MirrorBlock(Block.Properties.create(Material.GLASS, MaterialColor.BLUE).hardnessAndResistance(0.6F).sound(SoundType.GLASS).notSolid()).setRegistryName("mirror"),
+				new LaserEmitterBlock(Block.Properties.create(Material.IRON, MaterialColor.OBSIDIAN).hardnessAndResistance(1F).sound(SoundType.METAL)).setRegistryName("laser_emitter")
 		);
 	}
 
 	private void registerBlockEntities(RegistryEvent.Register<TileEntityType<?>> event)
 	{
+		event.getRegistry().registerAll(
+				TileEntityType.Builder.create(LaserEmitterEntity::new, LuxNetBlocks.LASER_EMITTER).build(null).setRegistryName("laser_emitter")
+		);
 	}
 
 	private void pistonEvent(PistonEvent.Post event)

@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GGG",
+		"GCG",
+		"GGG"
+	],
+	"key": {
+		"C": {
+			"item": "luxnet:hot_coal"
+		},
+		"G": {
+			"tag": "forge:glass"
+		}
+	},
+	"result": {
+		"item": "luxnet:silicon",
+		"count": 8
+	}
+}

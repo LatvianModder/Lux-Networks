@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GCG",
+		"GAG",
+		"GGG"
+	],
+	"key": {
+		"G": {
+			"item": "luxnet:graphene_plate"
+		},
+		"C": {
+			"item": "luxnet:advanced_circuit_board"
+		},
+		"A": {
+			"item": "minecraft:diamond_helmet"
+		}
+	},
+	"result": {
+		"item": "luxnet:graphene_helmet"
+	}
+}

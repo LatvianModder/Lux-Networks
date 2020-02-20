@@ -12,4 +12,7 @@ public class LuxNetBlocks
 {
 	public static final Block GRAPHITE_DUST_BLOCK = Blocks.AIR;
 	public static final Block GRAPHENE_PLATE_BLOCK = Blocks.AIR;
+	public static final Block COMPRESSOR = Blocks.AIR;
+	public static final Block MIRROR = Blocks.AIR;
+	public static final Block LASER_EMITTER = Blocks.AIR;
 }

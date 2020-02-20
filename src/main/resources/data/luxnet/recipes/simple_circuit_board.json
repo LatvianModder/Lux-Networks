@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"CCC",
+		"PGP",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"item": "luxnet:cable"
+		},
+		"P": {
+			"item": "luxnet:conductive_powder"
+		},
+		"G": {
+			"item": "luxnet:graphene_plate"
+		}
+	},
+	"result": {
+		"item": "luxnet:simple_circuit_board"
+	}
+}

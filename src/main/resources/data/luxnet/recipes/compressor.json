@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"PIP",
+		"P P",
+		"PSP"
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:piston"
+		},
+		"P": {
+			"item": "luxnet:graphene_plate"
+		},
+		"S": {
+			"item": "minecraft:smithing_table"
+		}
+	},
+	"result": {
+		"item": "luxnet:compressor"
+	}
+}
